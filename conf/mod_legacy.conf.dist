@@ -1,0 +1,88 @@
+[worldserver]
+
+########################################
+# mod-legacy configuration
+########################################
+#
+# Account-wide "Legacy" progression: characters earn Legacy Points by leveling, credited to
+# the ACCOUNT (any character's level-ups add to the same shared pool). Every character on the
+# account can then spend from that pool with '.legacy buy <tree> <node>' to raise ranks in 3
+# small perk trees (Adventure, Professions, Resourcefulness) - see the README for the full
+# node list. Which nodes are active is tracked per character; the account can never have spent
+# (in total, across every character) more than it has ever earned.
+#
+# v1 scope: earning is level-ups only. More earn-sources are future work.
+#
+
+#
+#    Legacy.Enable
+#        Master on/off switch for this module. 0 = the module loads but does nothing (no
+#        earning, no spending, no perks applied).
+#        Default: 1
+#
+Legacy.Enable = 1
+
+#
+#    Legacy.PointsPerLevel
+#        Legacy Points credited to the account each time a character crosses a
+#        Legacy.LevelStep boundary.
+#        Default: 1
+#
+Legacy.PointsPerLevel = 1
+
+#
+#    Legacy.LevelStep
+#        Award Legacy.PointsPerLevel every this many character levels (1 = every level).
+#        Default: 1
+#
+Legacy.LevelStep = 1
+
+#
+# ---- Adventure tree ------------------------------------------------------------------------
+#   1. Swift Boots     - move speed
+#   2. Quick Study      - XP from all sources
+#   3. Wanderlust        - bonus XP from area exploration (stacks with Quick Study)
+#
+# Each node has up to 3 ranks; total bonus = rank * PerRank (percent). Cost to raise a node is
+# 1/2/3 Legacy Points for rank 1/2/3 (2 and 3 are ON TOP of the previous rank's cost).
+#
+
+#    Legacy.Adventure.MoveSpeed.PerRank (percent per rank, max rank 3)
+Legacy.Adventure.MoveSpeed.PerRank = 1.0
+
+#    Legacy.Adventure.Xp.PerRank (percent per rank, max rank 3)
+Legacy.Adventure.Xp.PerRank = 2.0
+
+#    Legacy.Adventure.ExploreXp.PerRank (percent per rank, max rank 3, additional to Xp.PerRank)
+Legacy.Adventure.ExploreXp.PerRank = 10.0
+
+#
+# ---- Professions tree -----------------------------------------------------------------------
+#   1. Steady Hands   - gathering skill-up rate (mining/herbalism/skinning)
+#   2. Master Crafter  - crafting skill-up rate
+#   3. Bountiful Harvest - gather yield chance - RESERVED, not implemented / not purchasable in
+#      v1 (no clean hook exists yet to raise a specific gather node's yield without also
+#      touching unrelated creature loot). Listed in '.legacy' for visibility only.
+#
+
+#    Legacy.Professions.GatherRate.PerRank (percent per rank, max rank 3)
+Legacy.Professions.GatherRate.PerRank = 10.0
+
+#    Legacy.Professions.CraftRate.PerRank (percent per rank, max rank 3)
+Legacy.Professions.CraftRate.PerRank = 10.0
+
+#
+# ---- Resourcefulness tree -------------------------------------------------------------------
+#   1. Grave Robber   - gold looted from creatures/objects
+#   2. Haggler         - vendor buy-price discount (also nudges repair costs, see README)
+#   3. Frugal Repairs   - additional repair-cost discount (stacks with Haggler)
+#
+
+#    Legacy.Resourcefulness.KillGold.PerRank (percent per rank, max rank 3)
+Legacy.Resourcefulness.KillGold.PerRank = 5.0
+
+#    Legacy.Resourcefulness.VendorDiscount.PerRank (percent per rank, max rank 3)
+Legacy.Resourcefulness.VendorDiscount.PerRank = 2.0
+
+#    Legacy.Resourcefulness.RepairDiscount.PerRank (percent per rank, max rank 3)
+Legacy.Resourcefulness.RepairDiscount.PerRank = 5.0
