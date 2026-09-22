@@ -114,7 +114,7 @@ namespace Legacy
         // Deliberately NOT SQL update files: on this fork a failing module SQL aborts the whole
         // worldserver boot, so runtime tables are created programmatically and any failure is
         // tolerated at runtime instead (matches mod-self-found / mod-guild-tax).
-        CharacterDatabase.Execute(
+        CharacterDatabase.DirectExecute(
             "CREATE TABLE IF NOT EXISTS `legacy_account` ("
             "`account_id` INT UNSIGNED NOT NULL, "
             "`points_earned` INT UNSIGNED NOT NULL DEFAULT 0, "
@@ -122,7 +122,7 @@ namespace Legacy
             "PRIMARY KEY (`account_id`)"
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
-        CharacterDatabase.Execute(
+        CharacterDatabase.DirectExecute(
             "CREATE TABLE IF NOT EXISTS `legacy_spent` ("
             "`guid` INT UNSIGNED NOT NULL, "
             "`account_id` INT UNSIGNED NOT NULL, "
