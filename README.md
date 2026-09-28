@@ -1,5 +1,10 @@
 # mod-legacy
 
+<!-- links:start -->
+[![Support me on Ko-fi](https://malura.de/assets/badge/kofi.svg)](https://malura.de/go/kofi?ref=mod-legacy)
+[![Check out my page](https://malura.de/assets/badge/malura.svg)](https://malura.de/go/site?ref=mod-legacy)
+<!-- links:end -->
+
 An [AzerothCore](https://www.azerothcore.org/) module (WotLK 3.3.5a) that adds **account-wide
 Legacy progression**: your characters earn Legacy Points by leveling, and every character on
 the account spends from that same shared pool to raise ranks in 3 small perk trees.
