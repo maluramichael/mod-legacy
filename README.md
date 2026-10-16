@@ -14,7 +14,7 @@ the account spends from that same shared pool to raise ranks in 3 small perk tre
 - **Earn**: leveling up credits Legacy Points to the account (any character's level-ups add
   to the same pool).
 - **Spend**: each character independently chooses which perks to raise, but every character
-  draws from the ONE account-wide pool — the account can never have spent, in total across
+  draws from the ONE account-wide pool: the account can never have spent, in total across
   every character, more than it has ever earned.
 - **Apply**: bought perks are re-applied automatically on login and immediately after every
   buy/reset.
@@ -26,7 +26,7 @@ the account spends from that same shared pool to raise ranks in 3 small perk tre
 ```
 
 Each node has up to rank 3. Raising a node costs 1 / 2 / 3 Legacy Points for rank 1 / 2 / 3
-(each rank's cost is on top of the previous one — 6 points total to max a node).
+(each rank's cost is on top of the previous one: 6 points total to max a node).
 
 ## The 3 trees
 
@@ -44,7 +44,7 @@ Each node has up to rank 3. Raising a node costs 1 / 2 / 3 Legacy Points for ran
 |---|------|--------|
 | 1 | Steady Hands | +gathering skill-up rate (mining/herbalism/skinning) |
 | 2 | Master Crafter | +crafting skill-up rate |
-| 3 | Bountiful Harvest | +gather yield chance — **reserved, not purchasable yet** (see Limitations) |
+| 3 | Bountiful Harvest | +gather yield chance, **reserved, not purchasable yet** (see Limitations) |
 
 ### Resourcefulness
 
@@ -57,7 +57,7 @@ Each node has up to rank 3. Raising a node costs 1 / 2 / 3 Legacy Points for ran
 ## How the perks are applied
 
 - **Swift Boots** (move speed) is carried by a single hidden, passive, server-side spell
-  whose effect amount is rewritten at runtime to match the node's rank — the same technique
+  whose effect amount is rewritten at runtime to match the node's rank, the same technique
   several other modules on this server use for hidden stat auras. No client patch needed.
 - **Quick Study / Wanderlust** (XP%) scale the XP amount directly when it is awarded.
 - **Steady Hands / Master Crafter** (skill-up rate) scale the skill-up amount directly when
@@ -65,7 +65,7 @@ Each node has up to rank 3. Raising a node costs 1 / 2 / 3 Legacy Points for ran
 - **Grave Robber** (kill gold%) scales the gold amount directly before it is looted from a
   creature or object.
 - **Haggler** (vendor discount) hooks the same reputation-discount calculation the game
-  itself uses for vendor buy prices — which is also the base of the repair-cost calculation,
+  itself uses for vendor buy prices, which is also the base of the repair-cost calculation,
   so Haggler quietly helps repair costs too.
 - **Frugal Repairs** applies an additional, repair-specific discount on top of Haggler.
 
@@ -105,6 +105,16 @@ still works, and the module logs a warning at startup.
 
 Clone into your AzerothCore `modules/` directory, apply the SQL file above to your world
 database, and rebuild the worldserver.
+
+## Optional client addon
+
+[`optionalAddon/GlobalTools_Legacy`](optionalAddon/) is an optional WoW 3.3.5a client addon
+that wraps the `.legacy` chat commands in a small window with buttons. The module works fine
+without it; it is purely a convenience for players. It is multi-language (English, German,
+Spanish and French, auto-selected by the client locale, falling back to English) and works
+standalone via `/glegacy` or as a tab inside the GlobalTools hub if that is installed. See the
+[addon README](optionalAddon/README.md) for install steps. Credit for the addon goes to
+Yluyan / Carlos.
 
 ## License
 

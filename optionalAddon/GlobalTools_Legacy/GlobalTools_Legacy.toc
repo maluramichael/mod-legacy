@@ -1,0 +1,13 @@
+## Interface: 30300
+## Title: |cff00ccffGlobalTools|r |cffffd100Legacy|r
+## Notes: Legacy system (mod-legacy) as a standalone addon. Integrates with the GlobalTools hub if installed; without the hub use /glegacy.
+## Notes-deDE: Legacy-System (mod-legacy) als eigenständiges Addon. Integriert sich in den GlobalTools-Hub, falls installiert; ohne Hub /glegacy verwenden.
+## Notes-esES: Sistema Legacy (mod-legacy) como addon individual. Se integra al hub GlobalTools si esta instalado; sin el hub usa /glegacy.
+## Notes-frFR: Système Legacy (mod-legacy) en tant qu'addon individuel. S'intègre au hub GlobalTools s'il est installé; sans le hub, utilisez /glegacy.
+## Author: Yluyan / Carlos
+## Version: 1.1.0
+## OptionalDeps: GlobalTools
+## SavedVariables: GlobalToolsLegacyDB
+
+Locale.lua
+Legacy.lua
